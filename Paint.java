@@ -12,15 +12,22 @@ public class Paint {
 	   	 System.out.println("What is the width of the room?");
 	   	 width = reader.nextDouble();
 	   	 
-	  double sqToPaint ;
-	  sqToPaint =(width*length) + 2*(height*width)+ 2*(height*length);
-	  double smallBucket,rest;
-	  int bigBucket;
+	  double sqToPaintD ;
+	  sqToPaintD =(width*length) + 2*(height*width)+ 2*(height*length);
+	  int bigBucket,smallBucket = 0,rest;
+	  int sqToPaint = (int)Math.ceil(sqToPaintD);
 	  bigBucket = sqToPaint/140;
+
 	  rest = sqToPaint%140;
-	  smallBucket = rest/30;
+	  if(rest > 90){
+		  bigBucket++;
+	  }else{
+		    double smallBucketD = rest/30.0;
+		    smallBucket = (int) Math.ceil(smallBucketD);
+	  }
+	
 	  
-	  System.out.println((int)(bigBucket + smallBucket)+1);
+	  System.out.println( "Big " + bigBucket + "small " + smallBucket );
 
 	}
 
