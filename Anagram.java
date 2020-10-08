@@ -1,5 +1,8 @@
 package eddu.smg;
 import java.util.Scanner;
+package eddu.smg;
+import java.util.Scanner;
+import java.util.Arrays;
 public class Anagram {
 	
 	public static void main(String[] args) {
@@ -11,22 +14,22 @@ public class Anagram {
 		String word2 = in.nextLine();
 		in.close();
 		
-		boolean isAnAnagram = true;
-		String copyWord2 = word2;
-		int lengthWord1 = word1.length();
+		boolean isAnAnagram = false;
 		
-		for (int i = 0; i<lengthWord1; i++){
-			char charInWord1 = word1.charAt(i);
-			if(charInWord1 > 'a' && charInWord1 < 'z' || charInWord1 > 'A' && charInWord1 < 'Z'){
-				int positionInWord2 = copyWord2.indexOf(charInWord1);
-				if(positionInWord2 == -1){
-					isAnAnagram = false;
-					break;
-				}else{
-					copyWord2 = copyWord2.substring(0,positionInWord2)+ copyWord2.substring(positionInWord2 +1);
-					System.out.println(copyWord2);
-				}
-			}
-		}
+		word1 = word1.replaceAll("\\s+", "");
+		word2 = word2.replaceAll("\\s+", "");
+		
+		 
+		char sorted1[] = word1.toCharArray();
+	      Arrays.sort(sorted1);
+	      word1 = new String(sorted1);
+	      
+	      char sorted2[] = word2.toCharArray();
+	      Arrays.sort(sorted2);
+	      word2 = new String(sorted2);
+	      
+	      if(word1.equals(word2)) {
+	    	  isAnAnagram = true;}
+	      System.out.println(isAnAnagram ? "is anagram" : "isn't an anagram");
 	}
 }
