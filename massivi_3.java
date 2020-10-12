@@ -12,17 +12,15 @@ public class massivi_3 {
 			 array[i] = in.nextInt();
 		}
 		in.close();
-		for(int i=0; i<array.length; i++) {
-			if (i>0) {
-				array[i]= array[i-1];
-			}
-			else {
-				array[i]=array[9];
-			}
+		int temp = array[0];
+		for(int i=0; i<array.length-1; i++) {
+				array[i]= array[i+1];
 		}
+		array[9]=temp;
 			for(int i =0; i<array.length; i++) {
 				System.out.print(array[i]);
 		}
 			
 	}
 }
+
