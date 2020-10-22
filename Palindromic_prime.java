@@ -1,26 +1,22 @@
 package eddu.smg;
 
 public class Palindromic_prime {
-
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		
 		int numbers=1;
 		long numberNow =2;
 		while(numbers<=121) {
 			if(prime(numberNow) && palindromic(numberNow)){
-				if(numbers%10!=0) {
-				System.out.print(numberNow + " ");
-				numbers++;
+				if(numbers%10!=0){
+				    System.out.print(numberNow + " ");
+				    numbers++;}
+				    else{
+				        System.out.println(numberNow + " ");
+				    numbers++;
+				    }
 				}
-				else if (numbers%10==0 ){
-					System.out.print(numberNow + " \n");
-					numbers++;
-				}
+				numberNow++;
 			}
-			numberNow++;
-		}
-	
-
 	}
  public static boolean prime(long num) {
 		boolean isPrime = true;
@@ -57,4 +53,5 @@ public class Palindromic_prime {
 	  }
  	}
 }
+
 
